@@ -1,0 +1,73 @@
+/* Colors and Styles (Default) */
+:root {
+  --PrimaryColor: hsl(0, 100%, 60%);
+  --SecondaryColor: hsl(210, 100%, 59%);
+  --HoverCOlor: #f95454;
+  --paleGreen: hsl(96, 75%, 89%);
+  --whiteColor: hsl(0, 0%, 100%);
+  --blackColor: hsl(0, 0%, 18%);
+  --textColor: hsl(240, 1%, 48%);
+  --bgColor: hsl(220, 10%, 94%);
+  --greyText: rgb(190, 190, 190);
+  --inputColor: hsl(330, 12%, 97%);
+  --itemCardColor: hsl(120, 5%, 88%);
+  --itemCardHover: hsl(120, 27%, 87%);
+  /* Font and Typography */
+  --biggestFontSize: 2.5rem;
+  --h1FontSize: 1.25rem;
+  --h2FontSize: 1rem;
+  --h3FontSize: 1rem;
+  --normalFontSize: 0.938rem;
+  --smallFontSize: 0.813rem;
+  --smallestFontSize: 0.75rem;
+}
+
+.companyItem {
+  /* From https://css.glass */
+}
+.companyItem a {
+  text-decoration: none;
+  color: inherit;
+  background: rgba(255, 255, 255, 0.86);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  padding: 1rem 1rem;
+  width: 20rem;
+  height: 15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.companyItem a .title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.companyItem a .title h2 {
+  font-size: var(--h1FontSize);
+}
+.companyItem a .title img {
+  border-radius: 100px;
+  width: 50px;
+}
+.companyItem a .content {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.companyItem a .content div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.companyItem a .content div .label {
+  font-size: var(--h2FontSize);
+}
+.companyItem a .content div .value {
+  font-weight: 600;
+}/*# sourceMappingURL=CompanyItem.css.map */
