@@ -2,7 +2,7 @@ import { FormEvent, useEffect, useState } from "react";
 
 import "./Login.css";
 import LOGO from "../../assets/logo.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import TextField from "../../Components/TextField";
 import Button from "../../Components/Button";
 import { ClipLoader } from "react-spinners";
@@ -16,6 +16,7 @@ const Login = () => {
   const [userSessionMod, setUserSessionMod] = useState<string>(userSession);
   const [tokenMod, setTokenMod] = useState<string>(token);
   const [errorMessage, setErrorMessage] = useState(null);
+  const navigate= useNavigate();
   useEffect(() => {
     localStorage.setItem("user", userSessionMod);
     localStorage.setItem("token", tokenMod);
@@ -33,7 +34,8 @@ const Login = () => {
       if (data.message === "L'utilisateur s'est connecté avec succès.") {
         setUserSessionMod("connected");
         setTokenMod(data.token);
-        window.location.reload();
+        window.location.href= "/";
+       
       } else {
         setErrorMessage(data.message);
       }

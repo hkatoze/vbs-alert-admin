@@ -13,6 +13,18 @@ export type CompanyModel = {
   companyLogo: string;
 };
 
+export type EmployeeModel = {
+  companyId?: string;
+  employeeId: number;
+  firstname: string;
+  job: string;
+  lastname: string;
+  password: string;
+  phone_number: string;
+  role: string;
+  profilUrl: string
+};
+
 export const endpoint = "http://localhost:3000";
 export interface Admin {
   emailAddress: string;
@@ -20,4 +32,9 @@ export interface Admin {
   username: string;
   role: string;
   token: string;
+}
+
+export interface ApiErrorResponse {
+  message: string;
+  // Ajoutez d'autres propriétés si nécessaire
 }

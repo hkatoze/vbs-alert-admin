@@ -84,4 +84,13 @@
   font-weight: 700;
   text-decoration: none;
   color: var(--blackColor);
+}
+
+@media screen and (max-height: 700px) {
+  .loginpage {
+    height: 95vh;
+  }
+  .loginpage form .newUserSection {
+    margin-top: 5rem;
+  }
 }/*# sourceMappingURL=Login.css.map */

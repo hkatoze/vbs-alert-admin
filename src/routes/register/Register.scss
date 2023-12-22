@@ -74,3 +74,23 @@
     }
   }
 }
+// MEDIA QUERIES ===================>
+@media screen and (max-height: 700px) {
+  .registerpage{
+    height: 95vh;
+    h2 {
+     
+      margin-bottom: 2rem;
+    }
+    form {
+ 
+      .alreadyAccountSection {
+   
+        margin-top: 0.3rem;
+  
+       
+      }
+    }
+  }
+
+}

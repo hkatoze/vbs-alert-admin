@@ -31,9 +31,9 @@
 .companyView .backButtonSection {
   display: flex;
   justify-content: flex-start;
-  margin-bottom: 5rem;
   margin-left: 1rem;
-  margin-top: 2rem;
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
   width: 100%;
 }
 .companyView .backButtonSection .backButton {
@@ -135,6 +135,10 @@
 .companyView .bottomSection .informations .content .actionsBlock .edit {
   color: var(--SecondaryColor);
 }
+.companyView .bottomSection .informations .content .actionsBlock .edit a {
+  text-decoration: none;
+  color: inherit;
+}
 .companyView .bottomSection .informations .content .actionsBlock .delete {
   color: var(--PrimaryColor);
 }
@@ -150,51 +154,9 @@
 .companyView .bottomSection .informations .content .actionsBlock span:hover {
   background-color: rgba(238, 235, 235, 0.5);
 }
-.companyView .bottomSection .employees {
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: start;
-  gap: 1.5rem;
-  height: 100%;
-}
-.companyView .bottomSection .employees .title {
-  display: flex;
-  flex-direction: row;
-  justify-content: start;
-  align-items: center;
-  width: 100%;
-  gap: 0.5rem;
-}
-.companyView .bottomSection .employees .title div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50px;
-  width: 50px;
-  background-color: var(--PrimaryColor);
-  border-radius: 100px;
-}
-.companyView .bottomSection .employees .title h2 {
-  font-size: var(--h2FontSize);
-}
-.companyView .bottomSection .employees .content {
-  display: flex;
-  width: 100%;
-  border: 3px dotted var(--SecondaryColor);
-  overflow: auto;
-  flex-direction: column;
-  padding: 10px;
-  border-radius: 5px;
-  gap: 1rem;
-}
 
 @media screen and (max-width: 1187px) {
   .companyView {
     justify-content: center;
-  }
-  .companyView .employees .content {
-    width: 100%;
-    height: 100%;
   }
 }/*# sourceMappingURL=CompanyView.css.map */

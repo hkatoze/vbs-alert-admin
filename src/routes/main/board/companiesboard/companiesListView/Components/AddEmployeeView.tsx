@@ -1,27 +1,34 @@
 import { useMutation, useQueryClient } from "react-query";
-import "./AddCompanyView.css";
-import { ApiErrorResponse, CompanyModel, endpoint, headers } from "../../../../../constants";
+import "./AddEmployeeView.css";
 import axios, { AxiosError } from "axios";
 import { FormEvent, useState } from "react";
 import { CiBank } from "react-icons/ci";
-import SelectField from "../../../../../Components/SelectField";
-import TextField from "../../../../../Components/TextField";
-import FilePicker from "../../../../../Components/FilePicker";
-import { useNavigate } from "react-router-dom";
-import { ClipLoader } from "react-spinners";
 
-const AddCompanyView = () => {
-  const [errorMessage, setErrorMessage] = useState<string>('');
+import { useNavigate, useParams } from "react-router-dom";
+import { ClipLoader } from "react-spinners";
+import {
+  ApiErrorResponse,
+  EmployeeModel,
+  endpoint,
+  headers,
+} from "../../../../../../constants";
+import SelectField from "../../../../../../Components/SelectField";
+import TextField from "../../../../../../Components/TextField";
+import FilePicker from "../../../../../../Components/FilePicker";
+
+const AddEmployeeView = () => {
+  const [errorMessage, setErrorMessage] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [urlLogo, setUrlLogo] = useState<string>("");
   const queryClient = useQueryClient();
   const navigate = useNavigate();
+ 
   const mutation = useMutation({
-    mutationFn: (companyModel: Omit<CompanyModel, "companyId">) =>
+    mutationFn: (employeeModel: Omit<EmployeeModel, "employeeId">) =>
       axios
-        .post(`${endpoint}/api/companies`, companyModel, { headers: headers })
+        .post(`${endpoint}/api/employees`, employeeModel, { headers: headers })
         .then((res) => res.data),
-    onSuccess: ( ) => {
+    onSuccess: () => {
       queryClient.invalidateQueries;
       setIsLoading(false);
       navigate(-1);
@@ -31,33 +38,41 @@ const AddCompanyView = () => {
       setErrorMessage(error.response?.data?.message ?? "Erreur inconnue");
     },
   });
+  const { companyId } = useParams();
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setIsLoading(true);
+    
     const form = event.target as HTMLFormElement;
     const formData = new FormData(form);
-    const country: string = formData.get("country") as string;
-    const companyName: string = formData.get("companyName") as string;
-    const streetAddress: string = formData.get("street") as string;
-    const city: string = formData.get("city") as string;
-    const postalCode: string = formData.get("postalCode") as string;
-    const companyLogo = urlLogo;
-    const newCompany = {
-      country: country,
-      companyLogo: companyLogo,
-      companyName: companyName,
-      streetAddress: streetAddress,
-      city: city,
-      postalCode: postalCode,
+    const role: string = formData.get("role") as string;
+    const firstname: string = formData.get("firstname") as string;
+    const lastname: string = formData.get("lastname") as string;
+    const job: string = formData.get("job") as string;
+    const phone_number: string = formData.get("phone_number") as string;
+    const password: string = "Happy!2023";
+    
+    const profilUrl = urlLogo;
+
+   
+    const newEmployee = {
+        companyId: companyId,
+        firstname: firstname,
+        job: job,
+        lastname: lastname,
+        password: password,
+        phone_number: phone_number,
+        role: role,
+        profilUrl: profilUrl
     };
 
-    mutation.mutate(newCompany);
+    mutation.mutate(newEmployee);
     form.reset();
   };
 
   return (
-    <div className="addCompanyView">
+    <div className="addEmployeeView">
       <div className="backButtonSection">
         <button
           className="backButton"
@@ -74,85 +89,77 @@ const AddCompanyView = () => {
           <div>
             <CiBank color="white" size="25px" />
           </div>
-          <h2>Company information</h2>
+          <h2>Employee Information</h2>
         </div>
         <div className="body">
           <form onSubmit={handleSubmit}>
             <div className="fields">
               <div className="field">
                 <span>
-                  Country <div>*</div>
+                  Role <div>*</div>
                 </span>
                 <SelectField
-                  name="country"
+                  name="role"
                   width={20}
-                  options={["Burkina Faso"]}
+                  options={["USER", "ADMIN"]}
                   required={true}
                 />
               </div>
               <div className="field">
                 <span>
-                  Company name <div>*</div>
+                  Firstname <div>*</div>
                 </span>
                 <TextField
                   width={20}
                   type="text"
-                  placeholder="Company name"
-                  name="companyName"
-                  required={true}
-                />
-              </div>
-              <div className="field">
-                <span>Street address</span>
-                <TextField
-                  width={20}
-                  type="text"
-                  placeholder="Street address"
-                  name="street"
+                  placeholder="Enter firstname"
+                  name="firstname"
                   required={true}
                 />
               </div>
               <div className="field">
                 <span>
-                  City<div>*</div>
+                  Lastname <div>*</div>
                 </span>
-                <SelectField
-                  name="city"
+                <TextField
                   width={20}
-                  options={[
-                    "Dédougou",
-                    "Banfora",
-                    "Ouagadougou",
-                    "Tenkodogo",
-                    "Kaya",
-                    "Koudougou",
-                    "Manga",
-                    "Fada N’gourma",
-                    "Bobo-Dioulasso",
-                    "Ouahigouya",
-                    "Ziniaré",
-                    "Dori",
-                    "Gaoua",
-                  ]}
+                  type="text"
+                  placeholder="Enter lastname"
+                  name="lastname"
                   required={true}
                 />
               </div>
               <div className="field">
-                <span>Postal code</span>
+                <span>
+                  Job <div>*</div>
+                </span>
                 <TextField
                   width={20}
                   type="text"
-                  placeholder="Postal code"
-                  name="postalCode"
+                  placeholder="Enter job title"
+                  name="job"
+                  required={true}
                 />
               </div>
               <div className="field">
                 <span>
-                  Company logo<div>*</div>
+                  Phone <div>*</div>
+                </span>
+                <TextField
+                  width={20}
+                  type="text"
+                  placeholder="Enter a phone number"
+                  name="phone_number"
+                  required={true}
+                />
+              </div>
+              <div className="field">
+                <span>
+                  Profil<div>*</div>
                 </span>
                 <FilePicker
                   setUrl={setUrlLogo}
-                  name="companyLogo"
+                  name="profil"
                   file="image"
                   width={20}
                 />
@@ -183,4 +190,4 @@ const AddCompanyView = () => {
   );
 };
 
-export default AddCompanyView;
+export default AddEmployeeView;

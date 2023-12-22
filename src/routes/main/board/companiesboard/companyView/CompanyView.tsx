@@ -1,20 +1,21 @@
 import { CiBank } from "react-icons/ci";
-import { MdModeEdit } from "react-icons/md";
-import { FaUsers } from "react-icons/fa";
+ 
+ 
 
 import "./CompanyView.css";
-import EmployeeItem from "./Components/EmployeeItem";
+ 
 
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { endpoint, headers } from "../../../../../constants";
 import {
-  QueryClient,
+ 
   useMutation,
   useQuery,
   useQueryClient,
 } from "react-query";
 import { ClipLoader } from "react-spinners";
+import { EmployeesListView } from "./Components/EmployeesListView";
 
 const CompanyView = () => {
   const navigate = useNavigate();
@@ -28,7 +29,7 @@ const CompanyView = () => {
         .then((response) => {
           return response.data;
         }),
-    onSuccess: (data) => {
+    onSuccess: ( ) => {
       queryClient.invalidateQueries;
       navigate(-1);
     },
@@ -112,11 +113,12 @@ const CompanyView = () => {
               </div>
 
               <div className="actionsBlock">
-                <span className="edit">Edit</span>
+                
+                <span className="edit"><Link to={`/mainpage/companiesboard/editCompany/${companyId}`}>Edit</Link></span>
                 <span
                   className="delete"
                   onClick={() => {
-                    if (confirm("Do you want really delete this companie")) {
+                    if (confirm("Voulez vous vraiment supprimer cette entreprise")) {
                       deleteMutation.mutate(companyId!);
                     }
                   }}
@@ -126,82 +128,7 @@ const CompanyView = () => {
               </div>
             </div>
           </div>
-          <div className="employees">
-            <div className="title">
-              <div>
-                <FaUsers color="white" size="25px" />
-              </div>
-              <h2>Employees List</h2>
-            </div>
-            <div className="content">
-              <EmployeeItem
-                employeeId={1}
-                companyId={1}
-                firstname="KINDA"
-                lastname="Harouna"
-                phone_number="+22674578186"
-                password="Kind@1404"
-                role="ADMIN"
-                job="IT Company"
-                profilImg="https://ucarecdn.com/a92d3f80-ffab-4f43-914d-296a5c46b101/"
-              />
-              <EmployeeItem
-                employeeId={1}
-                companyId={1}
-                firstname="DAO"
-                lastname="Razack"
-                phone_number="+22674578186"
-                password="Kind@1404"
-                role="USER"
-                job="Stagiaire"
-                profilImg="https://ucarecdn.com/a92d3f80-ffab-4f43-914d-296a5c46b101/"
-              />
-              <EmployeeItem
-                employeeId={1}
-                companyId={1}
-                firstname="NIKIEMA"
-                lastname="Eliele"
-                phone_number="+22674578186"
-                password="Kind@1404"
-                role="USER"
-                job="Stagiaire"
-                profilImg="https://ucarecdn.com/a92d3f80-ffab-4f43-914d-296a5c46b101/"
-              />
-              <EmployeeItem
-                employeeId={1}
-                companyId={1}
-                firstname="SAWADOGO"
-                lastname="Fatim"
-                phone_number="+22674578186"
-                password="Kind@1404"
-                role="USER"
-                job="Assistante administrative"
-                profilImg="https://ucarecdn.com/a92d3f80-ffab-4f43-914d-296a5c46b101/"
-              />
-              <EmployeeItem
-                employeeId={1}
-                companyId={1}
-                firstname="TRAORE"
-                lastname="Ivan"
-                phone_number="+22674578186"
-                password="Kind@1404"
-                role="ADMIN"
-                job="Project Manager"
-                profilImg="https://ucarecdn.com/a92d3f80-ffab-4f43-914d- g296a5c46b101/"
-              />
-              <EmployeeItem
-                employeeId={1}
-                companyId={1}
-                firstname="SAWADOGO"
-                lastname="Abdouramane"
-                phone_number="+22674578186"
-                password="Kind@1404"
-                role="ADMIN"
-                job="IT Consultant"
-                profilImg="https://ucarecdn.com/a92d3f80-ffab-4f43-914d-296a5c46b101/"
-              />
-            </div>
-          </div>
+         <EmployeesListView companyId={companyId!}/>
         </div>
       )}
     </div>

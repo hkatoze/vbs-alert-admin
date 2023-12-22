@@ -65,6 +65,8 @@
 .rightBlock .main .textDiv .link {
   margin-top: 2rem;
   cursor: pointer;
+  text-decoration: none;
+  color: inherit;
 }
 .rightBlock .main .textDiv .link:hover {
   color: var(--PrimaryColor);

@@ -66,4 +66,16 @@
   font-weight: 700;
   text-decoration: none;
   color: var(--blackColor);
+}
+
+@media screen and (max-height: 700px) {
+  .registerpage {
+    height: 95vh;
+  }
+  .registerpage h2 {
+    margin-bottom: 2rem;
+  }
+  .registerpage form .alreadyAccountSection {
+    margin-top: 0.3rem;
+  }
 }/*# sourceMappingURL=Register.css.map */

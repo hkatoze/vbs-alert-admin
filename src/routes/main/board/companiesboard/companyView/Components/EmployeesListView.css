@@ -1,0 +1,96 @@
+/* Colors and Styles (Default) */
+:root {
+  --PrimaryColor: hsl(0, 100%, 60%);
+  --SecondaryColor: hsl(210, 100%, 59%);
+  --HoverCOlor: #f95454;
+  --paleGreen: hsl(96, 75%, 89%);
+  --whiteColor: hsl(0, 0%, 100%);
+  --blackColor: hsl(0, 0%, 18%);
+  --textColor: hsl(240, 1%, 48%);
+  --bgColor: hsl(220, 10%, 94%);
+  --greyText: rgb(190, 190, 190);
+  --inputColor: hsl(330, 12%, 97%);
+  --itemCardColor: hsl(120, 5%, 88%);
+  --itemCardHover: hsl(120, 27%, 87%);
+  /* Font and Typography */
+  --biggestFontSize: 2.5rem;
+  --h1FontSize: 1.25rem;
+  --h2FontSize: 1rem;
+  --h3FontSize: 1rem;
+  --normalFontSize: 0.938rem;
+  --smallFontSize: 0.813rem;
+  --smallestFontSize: 0.75rem;
+}
+
+.employees {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 1.5rem;
+  width: 25vw;
+  height: 80vh;
+}
+.employees .title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 0.5rem;
+}
+.employees .title .leftSide {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+.employees .title .leftSide div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 50px;
+  background-color: var(--PrimaryColor);
+  border-radius: 100px;
+}
+.employees .title .leftSide h2 {
+  font-size: var(--h2FontSize);
+}
+.employees .title .rightSide a {
+  text-decoration: none;
+  color: inherit;
+}
+.employees .title .rightSide a button {
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  background-color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  color: var(--SecondaryColor);
+}
+.employees .title .rightSide a button:hover {
+  background-color: var(--SecondaryColor);
+  color: white;
+}
+.employees .content {
+  display: flex;
+  width: 25vw;
+  height: 80vh;
+  border: 3px dotted var(--SecondaryColor);
+  overflow: auto;
+  flex-direction: column;
+  padding: 10px;
+  align-items: center;
+  border-radius: 5px;
+  gap: 1rem;
+}
+
+@media screen and (max-width: 1187px) {
+  .employees .content {
+    width: 100%;
+    height: 100%;
+  }
+}/*# sourceMappingURL=EmployeesListView.css.map */

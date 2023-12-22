@@ -52,17 +52,17 @@
       margin-top: 1rem;
       padding: 1rem 0;
       font-weight: 800;
-      color: var(--blackColor);
+      color: var(--whiteColor);
     }
     p {
       font-size: var(--normalFontSize);
-      color: var(--textColor);
+      color: var(--whiteColor);
       padding-bottom: 1rem;
       font-weight: 500;
     }
     .btn {
       position: relative;
-      color: var(--textColor);
+      color: var(--blackColor);
       z-index: 1000;
     }
     .circle1,

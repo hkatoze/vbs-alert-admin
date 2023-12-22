@@ -30,9 +30,9 @@
   .backButtonSection {
     display: flex;
     justify-content: flex-start;
-    margin-bottom: 5rem;
     margin-left: 1rem;
-    margin-top: 2rem;
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
     width: 100%;
 
     .backButton {
@@ -133,6 +133,10 @@
           gap: 2rem;
           .edit {
             color: var(--SecondaryColor);
+            a{
+              text-decoration: none;
+              color: inherit;
+            }
           }
           .delete {
             color: var(--PrimaryColor);
@@ -153,61 +157,12 @@
         }
       }
     }
-    .employees {
-      display: flex;
-      flex-direction: column;
-      justify-content: start;
-      align-items: start;
-      gap: 1.5rem;
-
-      height: 100%;
-
-      .title {
-        display: flex;
-        flex-direction: row;
-        justify-content: start;
-        align-items: center;
-        width: 100%;
-        gap: 0.5rem;
-        div {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          height: 50px;
-          width: 50px;
-          background-color: var(--PrimaryColor);
-          border-radius: 100px;
-        }
-        h2 {
-          font-size: var(--h2FontSize);
-        }
-      }
-      .content {
-        display: flex;
-        width: 100%;
-
-        border: 3px dotted var(--SecondaryColor);
-        overflow: auto;
-        flex-direction: column;
-        padding: 10px;
-
-        //   border: 1px dotted var(--SecondaryColor);
-        border-radius: 5px;
-
-        gap: 1rem;
-      }
-    }
   }
 }
 // MEDIA QUERIES ===================>
 @media screen and (max-width: 1187px) {
   .companyView {
     justify-content: center;
-    .employees {
-      .content {
-        width: 100%;
-        height: 100%;
-      }
-    }
+   
   }
 }

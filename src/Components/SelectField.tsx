@@ -1,3 +1,4 @@
+import { ChangeEventHandler } from "react";
 import "./SelectField.css";
 interface SelectFieldProps {
   name: string;
@@ -5,6 +6,8 @@ interface SelectFieldProps {
   options: string[];
   required?: boolean;
   width?: number;
+  value?: string;
+  onChange?: ChangeEventHandler<HTMLSelectElement>
 }
 
 const SelectField = ({
@@ -12,6 +15,7 @@ const SelectField = ({
   label,
   required,
   options,
+  onChange,value,
   width,
 }: SelectFieldProps) => {
   return (
@@ -22,6 +26,8 @@ const SelectField = ({
         id=""
         required={required}
         style={{ width: `${width}rem` }}
+        onChange={onChange && onChange}
+        value={value && value}
       >
         {options.map((option, index) => (
           <option key={index} value={option}>

@@ -57,11 +57,11 @@
   font-size: var(--normalFontSize);
   color: var(--whiteColor);
   padding-bottom: 1rem;
-  font-weight: 300;
+  font-weight: 500;
 }
 .sideBarCard .cardContent .btn {
   position: relative;
-  color: var(--textColor);
+  color: var(--blackColor);
   z-index: 1000;
 }
 .sideBarCard .cardContent .circle1,
@@ -89,4 +89,4 @@
   .sideBarCard {
     display: none !important;
   }
-} /*# sourceMappingURL=SidebarCard.css.map */
+}/*# sourceMappingURL=SidebarCard.css.map */

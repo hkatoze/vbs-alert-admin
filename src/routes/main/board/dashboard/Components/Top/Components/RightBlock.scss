@@ -63,6 +63,8 @@
       .link {
         margin-top: 2rem;
         cursor: pointer;
+        text-decoration: none;
+        color: inherit;
         &:hover {
           color: var(--PrimaryColor);
           .icon {

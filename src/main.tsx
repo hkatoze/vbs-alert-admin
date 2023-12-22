@@ -17,6 +17,8 @@ import Helpboard from "./routes/main/board/helpboard/Helpboard";
 import CompaniesListView from "./routes/main/board/companiesboard/companiesListView/CompaniesListView";
 import CompanyView from "./routes/main/board/companiesboard/companyView/CompanyView";
 import AddCompanyView from "./routes/main/board/companiesboard/addCompanyView/AddCompanyView";
+import { EditCompanyView } from "./routes/main/board/companiesboard/editCompanyView/EditCompanyView";
+import AddEmployeeView from "./routes/main/board/companiesboard/companiesListView/Components/AddEmployeeView";
 
 const router = createBrowserRouter([
   {
@@ -30,7 +32,13 @@ const router = createBrowserRouter([
         path: "mainpage",
         element: <Mainpage />,
         children: [
-          { path: "dashboard", element: <Dashboard /> },
+          {
+            path: "dashboard",
+            element: <Dashboard />,
+            children: [
+              { path: "alertsHistory", element: <div>Burkina</div> },
+            ],
+          },
           {
             path: "companiesboard",
             element: <Companiesboard />,
@@ -43,6 +51,15 @@ const router = createBrowserRouter([
               {
                 path: "addCompany",
                 element: <AddCompanyView />,
+              },
+              {
+                path: "addEmployee/:companyId",
+                element: <AddEmployeeView />,
+              },
+
+              {
+                path: "editCompany/:companyId",
+                element: <EditCompanyView />,
               },
             ],
           },

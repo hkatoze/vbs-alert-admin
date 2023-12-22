@@ -14,13 +14,7 @@ const App = () => {
   return (
     <QueryClientProvider client={client}>
       <div className="app">
-        {session === "connected" && location.pathname === "/" ? (
-          <Mainpage />
-        ) : location.pathname != "/" ? (
-          <Outlet />
-        ) : (
-          <Login />
-        )}
+        {session==="connected" && location.pathname==="/"? <Mainpage/>: (session !="connected" && location.pathname ==="/"?<Login/>:<Outlet/>)}
       </div>
     </QueryClientProvider>
   );

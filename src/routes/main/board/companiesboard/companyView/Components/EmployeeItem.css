@@ -28,8 +28,9 @@
   width: 20rem;
   gap: 0.7rem;
   border: 1px solid rgb(238, 235, 235);
-  padding: 3px;
+  padding: 5px;
   border-radius: 2px;
+  cursor: pointer;
 }
 .employeeItem .profilImg {
   display: flex;
@@ -45,23 +46,43 @@
   width: 40px;
   border-radius: 100px;
 }
-.employeeItem .rightSide {
+.employeeItem .centerSide {
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-.employeeItem .rightSide .infos {
+.employeeItem .centerSide .infos {
   display: flex;
   flex-direction: column;
   justify-content: start;
 }
-.employeeItem .rightSide .infos h3 {
+.employeeItem .centerSide .infos h3 {
   font-size: var(--normalFontSize);
 }
-.employeeItem .rightSide .infos span {
+.employeeItem .centerSide .infos span {
   font-size: var(--smallFontSize);
 }
-.employeeItem .rightSide .isAdmin svg {
+.employeeItem .rightSide {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: flex-end;
+  align-items: end;
+  gap: 2rem;
+}
+.employeeItem .rightSide svg {
   color: var(--SecondaryColor);
+}
+.employeeItem .rightSide .actions {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+.employeeItem .rightSide .actions svg {
+  opacity: 0;
+}
+.employeeItem:hover .rightSide .actions svg {
+  opacity: 1;
 }/*# sourceMappingURL=EmployeeItem.css.map */

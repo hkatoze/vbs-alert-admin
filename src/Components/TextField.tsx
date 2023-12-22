@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ChangeEventHandler } from "react";
 import "./TextField.css";
 interface TextFieldProps {
   type: string;
@@ -8,6 +8,8 @@ interface TextFieldProps {
   label?: string;
   required?: boolean;
   width?: number;
+  value?: string;
+  onChange?: ChangeEventHandler<HTMLInputElement>
 }
 const TextField = ({
   type,
@@ -15,7 +17,9 @@ const TextField = ({
   suffixIcon,
   name,
   label,
+  value,
   required,
+  onChange,
   width,
 }: TextFieldProps) => {
   return (
@@ -24,6 +28,8 @@ const TextField = ({
       type={type}
       placeholder={placeholder}
       name={name}
+      onChange={onChange && onChange}
+      value={value && value}
       required={required}
       style={{ width: `${width}rem` }}
     />
