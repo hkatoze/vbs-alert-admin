@@ -87,6 +87,10 @@
   border-radius: 5px;
   gap: 1rem;
 }
+.employees .content a {
+  text-decoration: none;
+  color: inherit;
+}
 
 @media screen and (max-width: 1187px) {
   .employees .content {

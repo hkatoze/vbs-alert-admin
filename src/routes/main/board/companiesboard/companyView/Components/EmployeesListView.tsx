@@ -15,7 +15,6 @@ interface EmployeesListViewProps {
 }
 
 export const EmployeesListView = ({ companyId }: EmployeesListViewProps) => {
-
   const [isLoadingDelete, setIsLoadingDelete] = useState<boolean>(false);
   const fetchAllEmployees = () => {
     return axios.get(`${endpoint}/api/employees?companyId=${companyId}`, {
@@ -47,16 +46,14 @@ export const EmployeesListView = ({ companyId }: EmployeesListViewProps) => {
       setIsLoadingDelete(false);
     },
   });
-  
-const handleDelete = (employeeId:number)=>{
-  if (confirm("Voulez vous vraiment supprimer cet employé")) {
-             
-    deleteMutation.mutate(String(employeeId!));
 
-}
-}
+  const handleDelete = (employeeId: number, name: string) => {
+    if (confirm("Voulez vous vraiment supprimer l'employé " + name)) {
+      deleteMutation.mutate(String(employeeId!));
+    }
+  };
 
-const style = { opacity: isLoadingDelete ? "0.5" : "1" };
+  const style = { opacity: isLoadingDelete ? "0.5" : "1" };
   return (
     <div className="employees">
       <div className="title">
@@ -129,8 +126,13 @@ const style = { opacity: isLoadingDelete ? "0.5" : "1" };
             job={employee.job}
             profilImg={employee.profilUrl}
             style={style}
-            key={employee.employeeId}
-            handleDelete={()=>handleDelete(employee.employeeId)}
+            link={`/mainpage/companiesboard/companiesListView/${companyId}/${employee.employeeId}`}  key={employee.employeeId}
+            handleDelete={() =>
+              handleDelete(
+                employee.employeeId,
+                employee.lastname + " " + employee.firstname
+              )
+            }
           />
         ))}
       </div>

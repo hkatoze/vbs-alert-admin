@@ -19,6 +19,8 @@ import CompanyView from "./routes/main/board/companiesboard/companyView/CompanyV
 import AddCompanyView from "./routes/main/board/companiesboard/addCompanyView/AddCompanyView";
 import { EditCompanyView } from "./routes/main/board/companiesboard/editCompanyView/EditCompanyView";
 import AddEmployeeView from "./routes/main/board/companiesboard/companiesListView/Components/AddEmployeeView";
+import EmployeeView from "./routes/main/board/companiesboard/companyView/Components/EmployeeView";
+import { EditEmployeeView } from "./routes/main/board/companiesboard/companyView/Components/editEmployeeView/EmployeeEditView";
 
 const router = createBrowserRouter([
   {
@@ -49,6 +51,10 @@ const router = createBrowserRouter([
                 element: <CompanyView />,
               },
               {
+                path: "companiesListView/:companyId/:employeeId",
+                element: <EmployeeView/>
+              },
+              {
                 path: "addCompany",
                 element: <AddCompanyView />,
               },
@@ -60,6 +66,10 @@ const router = createBrowserRouter([
               {
                 path: "editCompany/:companyId",
                 element: <EditCompanyView />,
+              },
+              {
+                path: "editEmployee/:companyId/:employeeId",
+                element: <EditEmployeeView />,
               },
             ],
           },
