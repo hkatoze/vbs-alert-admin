@@ -1,5 +1,5 @@
 import "./VideoBlock.css";
-import VIDEO from "../../../../../../../assets/video.mp4";
+import VIDEO from "../../../../../../../../../assets/video.mp4";
 const VideoBlock = () => {
   return (
     <div className="videoBlock flex">

@@ -17,6 +17,7 @@ const CompaniesListView = () => {
     queryKey: ["all-companies-list"],
     queryFn: fetchAllCompanies,
   });
+  
   return (
     <div className="companiesListView">
       <Header
@@ -74,3 +75,5 @@ const CompaniesListView = () => {
 };
 
 export default CompaniesListView;
+
+

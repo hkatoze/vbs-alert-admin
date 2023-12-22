@@ -25,7 +25,7 @@ export type EmployeeModel = {
   profilUrl: string
 };
 
-export const endpoint = "https://sore-gray-cygnet-wear.cyclic.app/";
+export const endpoint = "https://sore-gray-cygnet-wear.cyclic.app";
 export interface Admin {
   emailAddress: string;
   password: string;

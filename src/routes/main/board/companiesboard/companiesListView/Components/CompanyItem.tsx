@@ -6,7 +6,7 @@ interface CompanyItemProps {
   name: string;
   logo: string;
   link: string;
-  nbrEmployees: number;
+  nbrEmployees: any;
 }
 const CompanyItem = ({ name, logo, nbrEmployees, link }: CompanyItemProps) => {
   return (

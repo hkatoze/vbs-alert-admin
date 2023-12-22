@@ -29,7 +29,6 @@ export const EditCompanyView = () => {
 
   const [errorMessage, setErrorMessage] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
-
   const [country, setCountry] = useState<string>("");
   const [companyName, setCompanyName] = useState<string>("");
   const [streetAddress, setStreetAddress] = useState<string>("");

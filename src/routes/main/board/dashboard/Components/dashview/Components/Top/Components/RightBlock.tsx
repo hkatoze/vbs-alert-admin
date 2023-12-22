@@ -1,9 +1,10 @@
-import IMG2 from "../../../../../../../assets/illustration.png";
+import IMG2 from "../../../../../../../../../assets/illustration.png";
 import { BsArrowRightShort } from "react-icons/bs";
 
 import "./RightBlock.css";
-import SidebarCard from "../../../../../Sidebar/Components/SidebarCard";
+ 
 import { Link } from "react-router-dom";
+import SidebarCard from "../../../../../../../Sidebar/Components/SidebarCard";
 
 const RightBlock = () => {
   return (

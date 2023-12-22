@@ -22,6 +22,7 @@
   --smallestFontSize: 0.75rem;
 }
 
+/* MenuListItem.scss */
 .listItem {
   padding: 0.2rem 1.5rem;
   width: 100%;
@@ -42,7 +43,16 @@
   color: var(--PrimaryColor);
   transition: 0s;
 }
+.listItem.selected .menuLink {
+  height: 100%;
+  color: var(--PrimaryColor);
+  transition: 0s;
+}
 .listItem:hover::before {
+  height: 100%;
+  transition: 0.3s ease;
+}
+.listItem.selected::before {
   height: 100%;
   transition: 0.3s ease;
 }
@@ -55,6 +65,9 @@
 .listItem .menuLink .icon {
   font-size: var(--h1FontSize);
   margin-right: 0.5rem;
+}
+.listItem .menuLink.flex {
+  display: flex;
 }
 
 @media screen and (max-width: 390px) {
