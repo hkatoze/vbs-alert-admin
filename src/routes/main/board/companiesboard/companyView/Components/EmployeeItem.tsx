@@ -1,11 +1,11 @@
-import axios from "axios";
+ 
 import "./EmployeeItem.css";
 
 import { MdAdminPanelSettings } from "react-icons/md";
 import { MdEdit, MdDelete } from "react-icons/md";
-import { useMutation, useQueryClient } from "react-query";
-import { endpoint, headers } from "../../../../../../constants";
-import { useRef, useState } from "react";
+ 
+ 
+ 
 interface EmployeeProps {
   employeeId: number;
   companyId: string;
@@ -21,12 +21,10 @@ interface EmployeeProps {
 }
 
 const EmployeeItem = ({
-  employeeId,
-  companyId,
+  
   firstname,
   lastname,
-  phone_number,
-  password,
+ 
   role,
   job,
   profilImg,

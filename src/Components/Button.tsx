@@ -16,7 +16,6 @@ const Button = ({
   width,
   type,
   bgColor,
-  zIndex,
   onClick,
 }: ButtonPros) => {
   return (

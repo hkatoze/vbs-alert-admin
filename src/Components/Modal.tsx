@@ -1,4 +1,4 @@
-import { MouseEventHandler, ReactNode } from "react";
+import {  ReactNode } from "react";
 import "./Modal.css";
 import { IoCloseOutline } from "react-icons/io5";
 

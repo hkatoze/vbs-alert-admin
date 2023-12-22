@@ -2,21 +2,21 @@ import { FormEvent, useEffect, useState } from "react";
 
 import "./Login.css";
 import LOGO from "../../assets/logo.png";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import TextField from "../../Components/TextField";
 import Button from "../../Components/Button";
 import { ClipLoader } from "react-spinners";
 import { useMutation } from "react-query";
 import axios, { AxiosError } from "axios";
-import { Admin, endpoint } from "../../constants";
+import { Admin, ApiErrorResponse, endpoint } from "../../constants";
 const userSession = localStorage.getItem("user") || "disconnected";
 const token = localStorage.getItem("token") || "";
 const Login = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [userSessionMod, setUserSessionMod] = useState<string>(userSession);
   const [tokenMod, setTokenMod] = useState<string>(token);
-  const [errorMessage, setErrorMessage] = useState(null);
-  const navigate= useNavigate();
+  const [errorMessage, setErrorMessage] = useState('');
+ 
   useEffect(() => {
     localStorage.setItem("user", userSessionMod);
     localStorage.setItem("token", tokenMod);
@@ -40,15 +40,15 @@ const Login = () => {
         setErrorMessage(data.message);
       }
     },
-    onError: (error: AxiosError) => {
+    onError: (error: AxiosError<ApiErrorResponse>) => {
       setIsLoading(false);
-      setErrorMessage(error.response?.data?.message || error.message);
+      setErrorMessage(error.response?.data?.message ?? "Erreur inconnue");
     },
   });
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setErrorMessage(null);
+    setErrorMessage('');
     setIsLoading(true);
     const form = event.target as HTMLFormElement;
     const formData = new FormData(form);

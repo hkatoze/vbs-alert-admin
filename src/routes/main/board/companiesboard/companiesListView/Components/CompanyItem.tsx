@@ -1,4 +1,4 @@
-import { MouseEventHandler } from "react";
+ 
 import "./CompanyItem.css";
 import { Link } from "react-router-dom";
 

@@ -14,9 +14,9 @@ interface TextFieldProps {
 const TextField = ({
   type,
   placeholder,
-  suffixIcon,
+ 
   name,
-  label,
+ 
   value,
   required,
   onChange,
