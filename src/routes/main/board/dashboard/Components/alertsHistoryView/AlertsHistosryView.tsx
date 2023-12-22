@@ -12,7 +12,7 @@ export const AlertsHistosryView = () => {
   const fetchAllAlerts = () => {
     return axios.get(`${endpoint}/api/alerts`, { headers: headers });
   };
-  const { data, isLoading, isError } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ["all-alerts-list"],
     queryFn: fetchAllAlerts,
   });
