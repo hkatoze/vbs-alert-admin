@@ -7,7 +7,7 @@ import { Dashview } from "./Components/dashview/Dashview";
 const Dashboard = () => {
   return (
     <div className="dashboard">
-      {location.pathname === "/mainpage/dashboard" ? (
+      {location.pathname === "/mainpage/dashboard" || location.pathname === "/"  ? (
        <Dashview/>
       ) : (
         <Outlet />
