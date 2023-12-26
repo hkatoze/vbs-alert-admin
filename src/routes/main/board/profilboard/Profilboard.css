@@ -24,6 +24,12 @@
 
 .profilBoard {
   display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+.profilBoard .body {
+  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
@@ -32,29 +38,29 @@
   height: 100%;
   gap: 5rem;
 }
-.profilBoard .profilImg {
+.profilBoard .body .profilImg {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 1rem;
 }
-.profilBoard .profilImg img {
+.profilBoard .body .profilImg img {
   width: 150px;
   height: 150px;
 }
-.profilBoard .profilImg h3 {
+.profilBoard .body .profilImg h3 {
   font-size: var(--h2FontSize);
   color: var(--SecondaryColor);
   font-weight: 500;
   transition: 0.5s ease-out;
   cursor: pointer;
 }
-.profilBoard .profilImg h3:hover {
+.profilBoard .body .profilImg h3:hover {
   text-decoration: underline;
   transition: 0.5s ease-out;
 }
-.profilBoard .profilImg .disconnect {
+.profilBoard .body .profilImg .disconnect {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -63,40 +69,40 @@
   font-weight: bold;
   cursor: pointer;
 }
-.profilBoard .profilImg .disconnect svg {
+.profilBoard .body .profilImg .disconnect svg {
   color: var(--PrimaryColor);
 }
-.profilBoard .profilImg .disconnect:hover {
+.profilBoard .body .profilImg .disconnect:hover {
   color: var(--PrimaryColor);
 }
-.profilBoard .rightSide {
+.profilBoard .body .rightSide {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
-.profilBoard .rightSide .infos {
+.profilBoard .body .rightSide .infos {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   border-bottom: 2px solid grey;
   padding-bottom: 2rem;
 }
-.profilBoard .rightSide .infos div {
+.profilBoard .body .rightSide .infos div {
   display: flex;
   flex-direction: row;
   gap: 3rem;
 }
-.profilBoard .rightSide .infos div h3 {
+.profilBoard .body .rightSide .infos div h3 {
   font-size: var(--h3FontSize);
   width: 10rem;
 }
-.profilBoard .rightSide .infos div span {
+.profilBoard .body .rightSide .infos div span {
   width: 15rem;
   padding: 0.3rem 0.3rem;
   border-bottom: 1px solid #f0f0f0;
   font-size: var(--normalFontSize);
 }
-.profilBoard .rightSide .infos div input {
+.profilBoard .body .rightSide .infos div input {
   border: none;
   font-size: var(--normalFontSize);
   outline: none;
@@ -107,12 +113,12 @@
   width: 15rem;
   font-weight: 500;
 }
-.profilBoard .rightSide .actions {
+.profilBoard .body .rightSide .actions {
   display: flex;
   flex-direction: row;
   gap: 1rem;
 }
-.profilBoard .rightSide .actions button {
+.profilBoard .body .rightSide .actions button {
   border: none;
   padding: 0.5rem 0.5rem;
   border-radius: 3px;
@@ -120,18 +126,18 @@
   color: white;
   font-weight: 500;
 }
-.profilBoard .rightSide .actions button:hover {
+.profilBoard .body .rightSide .actions button:hover {
   background-color: #f0f0f0;
 }
-.profilBoard .rightSide .actions .edit {
+.profilBoard .body .rightSide .actions .edit {
   background-color: var(--SecondaryColor);
 }
-.profilBoard .rightSide .actions .edit:hover {
+.profilBoard .body .rightSide .actions .edit:hover {
   color: var(--SecondaryColor);
 }
-.profilBoard .rightSide .actions .resetPassword {
+.profilBoard .body .rightSide .actions .resetPassword {
   background-color: var(--PrimaryColor);
 }
-.profilBoard .rightSide .actions .resetPassword:hover {
+.profilBoard .body .rightSide .actions .resetPassword:hover {
   color: var(--PrimaryColor);
 }/*# sourceMappingURL=Profilboard.css.map */

@@ -29,13 +29,7 @@
 .alertsHistoryView{
     width: 100%;
     height: 65%;
-    .backButton {
-        background-color: black;
-        color: white;
-        padding: 5px;
-        border: none;
-        cursor: pointer;
-      }
+   
       .title{
         h2{
             font-size: var(--h1FontSize);

@@ -17,6 +17,9 @@ export const AlertsHistosryView = () => {
     queryFn: fetchAllAlerts,
   });
 
+
+   
+
   const changeTab = (tab: number) => {
     setTab(tab);
     console.log(tab);

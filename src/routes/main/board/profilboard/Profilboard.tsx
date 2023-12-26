@@ -6,6 +6,7 @@ import { CiLogout } from "react-icons/ci";
 import { Admin, endpoint, headers } from "../../../../constants";
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import { ClipLoader } from "react-spinners";
+import Header from "../../../../Components/Header";
 
 const userId = localStorage.getItem("userId") || "";
 
@@ -102,145 +103,150 @@ const Profilboard = () => {
   }, [isLoading, isError, data]);
   return (
     <div className="profilBoard">
-      <div className="profilImg">
-        <img src={IMG} alt="" />
-        <h3>Administrator</h3>
+      <div className="head"><Header/></div>
+      <div className="body">
+        <div className="profilImg">
+          <img src={IMG} alt="" />
+          <h3>Administrator</h3>
 
-        <div
-          className="disconnect"
-          onClick={() => {
-            if (
-              confirm("Voulez vous vraiment vous déconnectez de la plateforme ?")
-            ) {
-              handleLogout();
-            }
-          }}
+          <div
+            className="disconnect"
+            onClick={() => {
+              if (
+                confirm(
+                  "Voulez vous vraiment vous déconnectez de la plateforme ?"
+                )
+              ) {
+                handleLogout();
+              }
+            }}
+          >
+            <CiLogout /> <span>Log out</span>
+          </div>
+        </div>
+
+        <form
+          method="post"
+          action=""
+          className="rightSide"
+          onSubmit={handleSubmit}
         >
-          <CiLogout /> <span>Log out</span>
-        </div>
-      </div>
-
-      <form
-        method="post"
-        action=""
-        className="rightSide"
-        onSubmit={handleSubmit}
-      >
-        <div className="infos">
-          <div>
-            <h3>Firstname:</h3>
-            {isEdit ? (
-              <input
-                type="text"
-                name="firstname"
-                value={firstname}
-                onChange={handleOnChange}
-                autoFocus
-              />
-            ) : (
-              <span>{firstname}</span>
-            )}
-          </div>
-          <div>
-            <h3>Lastname:</h3>
-
-            {isEdit ? (
-              <input
-                type="text"
-                name="lastname"
-                value={lastname}
-                onChange={handleOnChange}
-              />
-            ) : (
-              <span>{lastname}</span>
-            )}
-          </div>
-          <div>
-            <h3>Username:</h3>
-
-            {isEdit ? (
-              <input
-                type="text"
-                name="username"
-                value={username}
-                onChange={handleOnChange}
-              />
-            ) : (
-              <span>{username}</span>
-            )}
-          </div>
-          <div>
-            <h3>Email address:</h3>
-
-            {isEdit ? (
-              <input
-                type="email"
-                name="emailAddress"
-                value={emailAddress}
-                onChange={handleOnChange}
-              />
-            ) : (
-              <span>{emailAddress}</span>
-            )}
-          </div>
-          <div>
-            <h3>Job:</h3>
-
-            {isEdit ? (
-              <input
-                type="text"
-                name="job"
-                value={job}
-                onChange={handleOnChange}
-              />
-            ) : (
-              <span>{job}</span>
-            )}
-          </div>
-        </div>
-        <div className="actions">
-          {isEdit && (
-            <button
-              type="submit"
-              style={{
-                backgroundColor: isEdit ? "#f0f0f0" : "hsl(210, 100%, 59%)",
-                color: isEdit ? "hsl(210, 100%, 59%)" : "white",
-              }}
-              className="edit"
-            >
-              {loading ? (
-                <ClipLoader
-                  color="hsl(210, 100%, 59%)"
-                  loading={isLoading}
-                  aria-label="Loading Spinner"
-                  speedMultiplier={0.8}
-                  data-testid="loader"
-                  style={{ padding: "0.5rem 0.5rem" }}
+          <div className="infos">
+            <div>
+              <h3>Firstname:</h3>
+              {isEdit ? (
+                <input
+                  type="text"
+                  name="firstname"
+                  value={firstname}
+                  onChange={handleOnChange}
+                  autoFocus
                 />
               ) : (
-                "Save"
+                <span>{firstname}</span>
               )}
-            </button>
-          )}
-          {!isEdit && (
-            <button
-              type="button"
-              onClick={() => setIsEdit(true)}
-              style={{
-                backgroundColor: isEdit ? "#f0f0f0" : "hsl(210, 100%, 59%)",
-                color: isEdit ? "hsl(210, 100%, 59%)" : "white",
-              }}
-              className="edit"
-            >
-              Edit
-            </button>
-          )}
+            </div>
+            <div>
+              <h3>Lastname:</h3>
 
-          <button type="button" className="resetPassword">
-            Reset password
-          </button>
-        </div>
-      </form>
+              {isEdit ? (
+                <input
+                  type="text"
+                  name="lastname"
+                  value={lastname}
+                  onChange={handleOnChange}
+                />
+              ) : (
+                <span>{lastname}</span>
+              )}
+            </div>
+            <div>
+              <h3>Username:</h3>
+
+              {isEdit ? (
+                <input
+                  type="text"
+                  name="username"
+                  value={username}
+                  onChange={handleOnChange}
+                />
+              ) : (
+                <span>{username}</span>
+              )}
+            </div>
+            <div>
+              <h3>Email address:</h3>
+
+              {isEdit ? (
+                <input
+                  type="email"
+                  name="emailAddress"
+                  value={emailAddress}
+                  onChange={handleOnChange}
+                />
+              ) : (
+                <span>{emailAddress}</span>
+              )}
+            </div>
+            <div>
+              <h3>Job:</h3>
+
+              {isEdit ? (
+                <input
+                  type="text"
+                  name="job"
+                  value={job}
+                  onChange={handleOnChange}
+                />
+              ) : (
+                <span>{job}</span>
+              )}
+            </div>
+          </div>
+          <div className="actions">
+            {isEdit && (
+              <button
+                type="submit"
+                style={{
+                  backgroundColor: isEdit ? "#f0f0f0" : "hsl(210, 100%, 59%)",
+                  color: isEdit ? "hsl(210, 100%, 59%)" : "white",
+                }}
+                className="edit"
+              >
+                {loading ? (
+                  <ClipLoader
+                    color="hsl(210, 100%, 59%)"
+                    loading={isLoading}
+                    aria-label="Loading Spinner"
+                    speedMultiplier={0.8}
+                    data-testid="loader"
+                    style={{ padding: "0.5rem 0.5rem" }}
+                  />
+                ) : (
+                  "Save"
+                )}
+              </button>
+            )}
+            {!isEdit && (
+              <button
+                type="button"
+                onClick={() => setIsEdit(true)}
+                style={{
+                  backgroundColor: isEdit ? "#f0f0f0" : "hsl(210, 100%, 59%)",
+                  color: isEdit ? "hsl(210, 100%, 59%)" : "white",
+                }}
+                className="edit"
+              >
+                Edit
+              </button>
+            )}
+
+            <button type="button" className="resetPassword">
+              Reset password
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

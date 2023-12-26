@@ -3,7 +3,7 @@ import { BiSearchAlt } from "react-icons/bi";
 import { TbMessageCircle } from "react-icons/tb";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import ADMIN_IMG from "../assets/admin-user-icon.jpg";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 interface HeaderProps {
   title?: string;
@@ -36,9 +36,9 @@ const Header = ({ title, subtitle }: HeaderProps) => {
       <div className="adminDiv flex">
         <TbMessageCircle className="icon" />
         <IoMdNotificationsOutline className="icon" />
-        <div className="adminImage">
+        <Link to="/mainpage/profilboard" className="adminImage">
           <img src={ADMIN_IMG} alt="Admin Image" />
-        </div>
+        </Link>
       </div>
     </div>
   );

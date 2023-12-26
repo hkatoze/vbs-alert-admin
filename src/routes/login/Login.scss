@@ -64,6 +64,10 @@
 
     gap: 1.5rem;
     .errorMessage {
+      width: 20rem;
+      text-align: center;
+      font-style: italic;
+      font-size: 13px;
       color: red;
     }
     .staySigned {
@@ -98,16 +102,12 @@
 
 // MEDIA QUERIES ===================>
 @media screen and (max-height: 700px) {
-  .loginpage{
+  .loginpage {
     height: 95vh;
-   
+
     form {
- 
       .newUserSection {
-   
         margin-top: 5rem;
-  
-       
       }
     }
   }

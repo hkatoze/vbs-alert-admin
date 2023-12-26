@@ -59,6 +59,10 @@
   gap: 1.5rem;
 }
 .loginpage form .errorMessage {
+  width: 20rem;
+  text-align: center;
+  font-style: italic;
+  font-size: 13px;
   color: red;
 }
 .loginpage form .staySigned {
