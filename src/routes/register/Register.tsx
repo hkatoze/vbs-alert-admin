@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import LOGO from "../../assets/logo.png";
 import "./Register.css";
 import TextField from "../../Components/TextField";
@@ -6,11 +6,15 @@ import SelectField from "../../Components/SelectField";
 import Button from "../../Components/Button";
 import { Link } from "react-router-dom";
 import { useMutation } from "react-query";
-import { Admin, endpoint } from "../../constants";
-import axios from "axios";
+import { Admin, ApiErrorResponse, endpoint } from "../../constants";
+import axios, { AxiosError } from "axios";
 import { ClipLoader } from "react-spinners";
-
+const userIdFromLocal = localStorage.getItem("userId") || "";
 const Register = () => {
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [userId, setUserId] = useState(userIdFromLocal);
+  const [successMessage, setSuccessMessage] = useState("");
   const mutation = useMutation({
     mutationFn: (admin: Omit<Admin, "id">) =>
       axios
@@ -18,14 +22,17 @@ const Register = () => {
         .then((response) => response.data),
     onSuccess: (data) => {
       setIsLoading(false);
-      console.log(data);
+      if (data.message === "Compte crée avec succès!") {
+        setUserId(data.data.id);
+        setSuccessMessage("Account created successfully! you can log in now.");
+      }
     },
-    onError: (error) => {
+    onError: (error: AxiosError<ApiErrorResponse>) => {
       setIsLoading(false);
-      console.log(error);
+      setErrorMessage(error.response?.data?.message ?? "Erreur inconnue");
     },
   });
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -35,22 +42,24 @@ const Register = () => {
     const username: string = formData.get("username") as string;
     const role: string = formData.get("role") as string;
     const password: string = formData.get("password") as string;
-    const confirmPassword = formData.get("confirmPassword");
-    if (password === confirmPassword) {
-      setIsLoading(true);
-      const admin: Admin = {
-        emailAddress: email,
-        username: username,
-        role: role,
-        password: password,
-      } as Admin;
+    const firstname: string = formData.get("firstname") as string;
+    const lastname: string = formData.get("lastname") as string;
 
-      mutation.mutate(admin);
-      form.reset();
-    } else {
-    }
+    setIsLoading(true);
+    const admin: Admin = {
+      emailAddress: email,
+      username: username,
+      role: role,
+      password: password,
+      firstname: firstname,
+      lastname: lastname,
+    } as Admin;
+
+    mutation.mutate(admin);
   };
-
+  useEffect(() => {
+    localStorage.setItem("userId", JSON.stringify(userId));
+  }, [userId]);
   return (
     <div className="registerpage flex">
       <div className="logo flex">
@@ -59,6 +68,20 @@ const Register = () => {
       </div>
       <h2>Create an account to join the family</h2>
       <form onSubmit={handleSubmit}>
+        <TextField
+          width={20}
+          type="text"
+          placeholder="Enter your firstname"
+          name="firstname"
+          required={true}
+        />
+        <TextField
+          width={20}
+          type="text"
+          placeholder="Enter your lastname"
+          name="lastname"
+          required={true}
+        />
         <TextField
           width={20}
           type="email"
@@ -87,14 +110,7 @@ const Register = () => {
           name="password"
           required={true}
         />
-        <TextField
-          width={20}
-          type="password"
-          placeholder="Confirm password"
-          name="confirmPassword"
-          required={true}
-        />
-
+        {errorMessage && <p className="errorMessage">{errorMessage}</p>}
         {isLoading ? (
           <ClipLoader
             color="hsl(210, 100%, 59%)"
@@ -103,6 +119,8 @@ const Register = () => {
             speedMultiplier={0.8}
             data-testid="loader"
           />
+        ) : successMessage ? (
+          <p className="successMessage">{successMessage}</p>
         ) : (
           <Button width={20} type="submit">
             Register

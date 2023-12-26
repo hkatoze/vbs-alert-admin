@@ -22,16 +22,18 @@ export type EmployeeModel = {
   password: string;
   phone_number: string;
   role: string;
-  profilUrl: string
+  profilUrl: string;
 };
 
 export const endpoint = "https://sore-gray-cygnet-wear.cyclic.app";
 export interface Admin {
   emailAddress: string;
-  password: string;
+  password?: string;
   username: string;
+  firstname: string;
+  lastname: string;
   role: string;
-  token: string;
+  token?: string;
 }
 
 export interface ApiErrorResponse {

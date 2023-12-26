@@ -10,7 +10,7 @@ import EMPTY_ICON from "../../../../../../assets/empty-icon.png";
 export const AlertsHistosryView = () => {
   const [tabindex, setTab] = useState<number>(1);
   const fetchAllAlerts = () => {
-    return axios.get(`${endpoint}/api/alerts`, { headers: headers });
+    return axios.get(`${endpoint}/api/alertsEmployees`, { headers: headers });
   };
   const { data, isLoading } = useQuery({
     queryKey: ["all-alerts-list"],

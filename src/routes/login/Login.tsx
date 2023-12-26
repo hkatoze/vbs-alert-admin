@@ -11,16 +11,19 @@ import axios, { AxiosError } from "axios";
 import { Admin, ApiErrorResponse, endpoint } from "../../constants";
 const userSession = localStorage.getItem("user") || "disconnected";
 const token = localStorage.getItem("token") || "";
+const userIdLocal = localStorage.getItem("userId") || "";
 const Login = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [userSessionMod, setUserSessionMod] = useState<string>(userSession);
   const [tokenMod, setTokenMod] = useState<string>(token);
+  const [userId, setUserId] = useState<string>(userIdLocal);
   const [errorMessage, setErrorMessage] = useState('');
  
   useEffect(() => {
     localStorage.setItem("user", userSessionMod);
     localStorage.setItem("token", tokenMod);
-  }, [userSessionMod, tokenMod]);
+    localStorage.setItem("userId", userId);
+  }, [userSessionMod, tokenMod,userId]);
 
   const mutation = useMutation({
     mutationFn: (admin: Omit<Admin, "token">) =>
@@ -32,6 +35,7 @@ const Login = () => {
       setIsLoading(false);
 
       if (data.message === "L'utilisateur s'est connecté avec succès.") {
+        setUserId(data.data.id);
         setUserSessionMod("connected");
         setTokenMod(data.token);
         window.location.href= "/";
