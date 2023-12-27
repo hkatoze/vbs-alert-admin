@@ -103,7 +103,9 @@ const Profilboard = () => {
   }, [isLoading, isError, data]);
   return (
     <div className="profilBoard">
-      <div className="head"><Header/></div>
+      <div className="head">
+        <Header />
+      </div>
       <div className="body">
         <div className="profilImg">
           <img src={IMG} alt="" />

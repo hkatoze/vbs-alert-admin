@@ -62,11 +62,15 @@
   width: 20rem;
   color: red;
   text-align: center;
+  font-style: italic;
+  font-size: 13px;
 }
 .registerpage form .successMessage {
   width: 20rem;
   color: green;
   text-align: center;
+  font-style: italic;
+  font-size: 13px;
 }
 .registerpage form .alreadyAccountSection {
   font-size: var(--normalFontSize);

@@ -110,8 +110,8 @@ const Register = () => {
           name="password"
           required={true}
         />
-        {errorMessage && <p className="errorMessage">{errorMessage}</p>}
-        {isLoading ? (
+        {(!successMessage && errorMessage )&& <p className="errorMessage">{errorMessage}</p>}
+        {isLoading && (
           <ClipLoader
             color="hsl(210, 100%, 59%)"
             loading={isLoading}
@@ -119,9 +119,11 @@ const Register = () => {
             speedMultiplier={0.8}
             data-testid="loader"
           />
-        ) : successMessage ? (
-          <p className="successMessage">{successMessage}</p>
-        ) : (
+        )}
+
+        {successMessage && <p className="successMessage">{successMessage}</p>}
+
+        {!isLoading && !successMessage && (
           <Button width={20} type="submit">
             Register
           </Button>
