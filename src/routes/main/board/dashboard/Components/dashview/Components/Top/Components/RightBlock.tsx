@@ -14,10 +14,10 @@ const RightBlock = () => {
           <h1>Our Stats</h1>
           <div className="flex">
             <span>
-              Today <br /> <small>4 alerts</small>
+              Today <br /> <small>0 alerts</small>
             </span>
             <span>
-              This Month <br /> <small>127 alerts</small>
+              This Month <br /> <small>0 alerts</small>
             </span>
           </div>
           <Link to="/mainpage/dashboard/alertsHistory" className="flex link">
