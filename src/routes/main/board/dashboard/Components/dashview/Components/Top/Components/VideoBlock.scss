@@ -53,6 +53,12 @@
   p,
   .buttons {
     z-index: 100;
+
+    a {
+      text-decoration: none;
+      color: inherit;
+
+    }
   }
 
   h1 {
