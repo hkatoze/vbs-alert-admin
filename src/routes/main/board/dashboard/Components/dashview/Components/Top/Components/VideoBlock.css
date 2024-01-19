@@ -54,6 +54,12 @@
 .videoBlock .buttons {
   z-index: 100;
 }
+.videoBlock h1 a,
+.videoBlock p a,
+.videoBlock .buttons a {
+  text-decoration: none;
+  color: inherit;
+}
 .videoBlock h1 {
   font-size: var(--h1FontSize);
   color: var(--whiteColor);

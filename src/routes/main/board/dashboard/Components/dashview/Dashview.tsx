@@ -5,6 +5,8 @@ import Top from "./Components/Top/Top";
 import "./Dashview.css";
 import axios from "axios";
 import { endpoint, headers } from "../../../../../../constants";
+import { ChartModel } from "./Components/Top/Components/ChartModel";
+import { NotificationsList } from "./Components/Top/Components/NotificationsList";
 const userId = localStorage.getItem("userId") || "";
 export const Dashview = () => {
   const fetchEmployeeById = () => {
@@ -17,7 +19,7 @@ export const Dashview = () => {
   });
 
   return (
-    <div>
+    <div className="dashview">
       <Header
         title="Welcome to VBS Alert"
         subtitle={`Hello ${
@@ -25,6 +27,7 @@ export const Dashview = () => {
         } , welcome back!`}
       />
       <Top />
+     
     </div>
   );
 };

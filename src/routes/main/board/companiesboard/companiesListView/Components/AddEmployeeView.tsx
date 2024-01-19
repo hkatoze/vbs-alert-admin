@@ -29,7 +29,7 @@ const AddEmployeeView = () => {
         .post(`${endpoint}/api/employees`, employeeModel, { headers: headers })
         .then((res) => res.data),
     onSuccess: () => {
-      queryClient.invalidateQueries;
+      queryClient.invalidateQueries();
       setIsLoading(false);
       navigate(-1);
     },
@@ -68,7 +68,7 @@ const AddEmployeeView = () => {
     };
 
     mutation.mutate(newEmployee);
-    form.reset();
+     
   };
 
   return (

@@ -24,8 +24,8 @@ export type EmployeeModel = {
   role: string;
   profilUrl: string;
 };
-
-export const endpoint = "https://sore-gray-cygnet-wear.cyclic.app";
+//https://sore-gray-cygnet-wear.cyclic.app
+export const endpoint = "https://vbs-alert-api.onrender.com";
 export interface Admin {
   emailAddress: string;
   password?: string;

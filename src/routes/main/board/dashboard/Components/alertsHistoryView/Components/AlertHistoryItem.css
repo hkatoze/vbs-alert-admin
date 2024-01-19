@@ -35,6 +35,7 @@
   backdrop-filter: blur(10.2px);
   -webkit-backdrop-filter: blur(10.2px);
   border: 2px solid rgba(255, 255, 255, 0.4);
+  width: 100%;
 }
 .alertHistoryItem .companyLogo img {
   height: 40px;

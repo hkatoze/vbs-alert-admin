@@ -17,8 +17,9 @@ export const AlertsHistosryView = () => {
     queryFn: fetchAllAlerts,
   });
 
-
-   
+  {
+    !isLoading && console.log(data?.data.data);
+  }
 
   const changeTab = (tab: number) => {
     setTab(tab);
@@ -55,7 +56,7 @@ export const AlertsHistosryView = () => {
           style={
             isLoading || data?.data.data.length == 0
               ? { alignItems: "center", justifyContent: "center" }
-              : { alignItems: "start",justifyContent: "center" }
+              : { alignItems: "start", justifyContent: "center" }
           }
         >
           {isLoading && (
@@ -90,9 +91,16 @@ export const AlertsHistosryView = () => {
             </div>
           )}
 
-          {data?.data.data.map(() => {
-            <AlertHistoryItem />;
-          })}
+          {data?.data.data.map((alertItem: any) => (
+            <AlertHistoryItem
+              username={`${alertItem.Employee.lastname} ${alertItem.Employee.firstname}`}
+              userProfilUrl={alertItem.Employee.profilUrl}
+              companyId={alertItem.Employee.companyId}
+              alertType={alertItem.Alert.alertType}
+              alertStatus={alertItem.Alert.alertStatus}
+              time={alertItem.Alert.alertDatetime}
+            />
+          ))}
         </div>
       </div>
     </div>
